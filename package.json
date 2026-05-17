@@ -1,6 +1,6 @@
 {
   "name": "constru-presupuestos-pro",
-  "version": "7.2.1",
+  "version": "7.3.0",
   "description": "Programa de presupuestos de construcción completo reparado con registro, planos y documento profesional",
   "main": "main.js",
   "scripts": {
@@ -11,7 +11,7 @@
   "build": {
     "appId": "cl.constru.presupuestos.pro",
     "productName": "Constru Presupuestos PRO",
-    "files": ["index.html", "main.js", "preload.js", "package.json"],
+    "files": ["index.html", "main.js", "preload.js", "package.json", "app.html", "manifest.webmanifest", "service-worker.js", "pwa/**/*"],
     "win": {"target": ["nsis", "portable"]},
     "nsis": {"oneClick": false, "allowToChangeInstallationDirectory": true}
   },
