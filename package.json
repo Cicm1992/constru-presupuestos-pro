@@ -1,0 +1,19 @@
+{
+  "name": "constru-presupuestos-pro",
+  "version": "7.2.1",
+  "description": "Programa de presupuestos de construcción completo reparado con registro, planos y documento profesional",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis",
+    "dist-portable": "electron-builder --win portable"
+  },
+  "build": {
+    "appId": "cl.constru.presupuestos.pro",
+    "productName": "Constru Presupuestos PRO",
+    "files": ["index.html", "main.js", "preload.js", "package.json"],
+    "win": {"target": ["nsis", "portable"]},
+    "nsis": {"oneClick": false, "allowToChangeInstallationDirectory": true}
+  },
+  "devDependencies": {"electron": "^31.0.0", "electron-builder": "^24.13.3"}
+}
