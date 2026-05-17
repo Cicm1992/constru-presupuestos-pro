@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<meta name="theme-color" content="#101827" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="Constru PRO" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="icon" href="pwa/icon.svg" type="image/svg+xml" />
+<title>Constru Presupuestos PRO</title>
+<style>
+html,body{margin:0;width:100%;height:100%;background:#0b1020;overflow:hidden;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+#appFrame{border:0;width:100%;height:100%;display:block;background:#0b1020}
+#loading{position:fixed;inset:0;display:grid;place-items:center;color:#fff;background:#0b1020;font-weight:800;letter-spacing:.02em}
+</style>
+</head>
+<body>
+<div id="loading">Constru Presupuestos PRO</div>
+<iframe id="appFrame" src="index.html" title="Constru Presupuestos PRO"></iframe>
+<script>
+const frame=document.getElementById('appFrame');
+const mobileCss=`
+@media(max-width:720px){body{padding:10px!important;background:#0b1020!important}.app{width:100%!important}.top{display:block!important;margin-bottom:10px!important}.brand{padding:8px 2px!important}.brand h1{font-size:21px!important}.brand p{font-size:13px!important}.pillbar{display:flex!important;gap:8px!important;overflow-x:auto!important;flex-wrap:nowrap!important;padding:8px 0 10px!important;scroll-snap-type:x mandatory!important}.pillbar::-webkit-scrollbar{display:none}.tab{flex:0 0 auto!important;scroll-snap-align:start!important;padding:10px 12px!important;border-radius:999px!important;font-size:13px!important}.grid{display:block!important;margin-top:0!important}.card{border-radius:12px!important;padding:14px!important;margin-bottom:10px!important;box-shadow:0 8px 20px rgba(2,8,23,.16)!important}.field{margin-bottom:10px!important}.actions{justify-content:stretch!important}.actions .btn,.btn{min-height:42px!important;flex:1 1 auto!important}.kpis{grid-template-columns:1fr 1fr!important;gap:8px!important}.kpi{border-radius:12px!important;padding:10px!important}.kpi b{font-size:17px!important}input,select,textarea{font-size:16px!important;border-radius:12px!important;padding:11px 12px!important}textarea{min-height:92px!important}table,thead,tbody,tr,td,th{display:block!important}thead{display:none!important}tbody tr{background:#fff!important;border:1px solid #e7eaf0!important;border-radius:12px!important;margin:0 0 10px!important;padding:8px!important}td{border:0!important;padding:6px 4px!important}.right{text-align:left!important}.doc-preview{padding:10px!important;overflow:auto!important}.doc-preview .page{width:100%!important;min-width:720px!important}.logoPreview{max-width:120px!important}.tabview{padding-bottom:18px!important}canvas{max-height:70vh!important;object-fit:contain!important}}
+`;
+frame.addEventListener('load',()=>{
+  document.getElementById('loading').style.display='none';
+  try{
+    const doc=frame.contentDocument;
+    const style=doc.createElement('style');
+    style.textContent=mobileCss;
+    doc.head.appendChild(style);
+  }catch(e){}
+});
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(()=>{}));
+}
+</script>
+</body>
+</html>
