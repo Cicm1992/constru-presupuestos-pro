@@ -1,0 +1,21 @@
+{
+  "name": "Constru Presupuestos PRO",
+  "short_name": "Constru PRO",
+  "description": "Presupuestos de construccion, planos PRO, registro y respaldos.",
+  "start_url": "./app.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0b1020",
+  "theme_color": "#101827",
+  "lang": "es-CL",
+  "icons": [
+    {
+      "src": "pwa/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"]
+}
